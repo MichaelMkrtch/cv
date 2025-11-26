@@ -1,0 +1,42 @@
+---
+import Globe from "@lucide/astro/icons/globe";
+import SocialLinks from "./social-links.astro";
+---
+
+<header>
+  <div class="space-y-1.5">
+    <h1 class="text-2xl font-bold">Michael Mkrtchyan</h1>
+
+    <p class="max-w-md text-pretty font-ibm-mono text-sm">
+      Junior front-end developer dedicated to crafting visually appealing and
+      high-quality interfaces.
+    </p>
+
+    <p class="max-w-md items-center text-xs font-ibm-mono">
+      <span
+        class="font-medium inline-flex gap-x-1.5 items-center align-baseline"
+      >
+        <Globe class="size-3.5 font-normal" stroke-width={2} />
+        California
+      </span>
+    </p>
+
+    <SocialLinks />
+    <!--
+                <SocialLink
+                name="email"
+                title="email icon"
+                link="mailto:michaelmkrtch.dev@gmail.com"
+            />
+            <SocialLink
+                name="github"
+                title="github icon"
+                link="https://github.com/MichaelMkrtch"
+            />
+            <SocialLink
+                name="linkedin"
+                title="linkedin icon"
+                link="https://www.linkedin.com/in/michaelmkr/"
+            /> -->
+  </div>
+</header>

@@ -1,0 +1,59 @@
+---
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+
+import Mail from "@lucide/astro/icons/mail";
+import Github from "./icons/github.astro";
+import LinkedIn from "./icons/linkedin.astro";
+
+type SocialItem = {
+  name: string;
+  link: string;
+  icon: AstroComponentFactory;
+  ariaLabel: string;
+};
+
+function getSocials(): SocialItem[] {
+  return [
+    {
+      name: "Email",
+      link: "mailto:michaelmkrtch.dev@gmail.com",
+      icon: Mail,
+      ariaLabel: "Email",
+    },
+    {
+      name: "GitHub",
+      link: "https://github.com/MichaelMkrtch",
+      icon: Github,
+      ariaLabel: "GitHub",
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/michaelmkr/",
+      icon: LinkedIn,
+      ariaLabel: "LinkedIn",
+    },
+  ];
+}
+
+const socials = getSocials();
+---
+
+<div
+  class="flex items-center gap-x-1 pt-1 text-sm"
+  role="list"
+  aria-label="Contact links"
+>
+  {
+    socials.map((item) => (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.ariaLabel}
+        class="size-8 hover:shadow-xs shadow-neutral-200 text-sm font-medium border border-neutral-200 inline-flex items-center justify-center rounded-md hover:bg-neutral-100 cursor-pointer transition-all ease-in duration-150 group"
+      >
+        <item.icon class="text-muted group-hover:text-accent size-4" />
+      </a>
+    ))
+  }
+</div>
