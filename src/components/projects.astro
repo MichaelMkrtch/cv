@@ -1,0 +1,24 @@
+---
+import Badge from "./badge.astro";
+import ProjectCard from "./project-card.astro";
+---
+
+<section class="flex flex-col gap-y-3">
+  <h2 class="text-xl font-bold">Projects</h2>
+  <div class="-mx-3 grid grid-cols-1 gap-3 md:grid-cols-2">
+    <ProjectCard
+      title="FrameRate"
+      link="https://frame-rate.io"
+      description="Fullstack web app to track and review the movies and shows you watch"
+      isLive
+    >
+      <Badge size="xs" mode="light">TypeScript</Badge>
+      <Badge size="xs" mode="light">SvelteKit</Badge>
+      <Badge size="xs" mode="light">Supabase</Badge>
+      <Badge size="xs" mode="light">ElysiaJS Server</Badge>
+      <Badge size="xs" mode="light">BetterAuth</Badge>
+      <Badge size="xs" mode="light">TanStack Query</Badge>
+      <Badge size="xs" mode="light">Cloudflare Workers</Badge>
+    </ProjectCard>
+  </div>
+</section>
