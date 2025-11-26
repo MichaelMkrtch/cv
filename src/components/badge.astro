@@ -1,0 +1,13 @@
+---
+const { size = "sm", mode = "dark" } = Astro.props;
+---
+
+<div
+  class={`
+    ${size === "sm" ? "text-sm font-medium" : "text-xs font-semibold tracking-wide"}
+    ${mode === "dark" ? "bg-accent text-white" : "bg-zinc-100 text-accent"}
+    font-ibm-mono text-center rounded-md py-0.5 px-2 hover:cursor-default
+  `}
+>
+  <slot />
+</div>
