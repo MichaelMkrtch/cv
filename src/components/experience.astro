@@ -1,0 +1,103 @@
+---
+import Badge from "./badge.astro";
+
+const experience = [
+  {
+    title: "Freelance Full-Stack Developer",
+    period: "2025 – Present",
+    contracts: [
+      {
+        employer: "AG Gallery",
+        link: "https://ag-gallery.com/",
+        badges: [
+          "React + SSR",
+          "TypeScript",
+          "GraphQL",
+          "Shopify",
+          "Sanity CMS",
+          "Cloudflare",
+        ],
+        description:
+          "Developed a full-featured e-commerce platform for an art gallery from the ground up.",
+        keyPoints: [
+          "Architected dual-CMS system integrating Sanity CMS and Shopify with TypeScript and React",
+          "Implemented multi-dimensional filtering system with infinite scroll across 1000+ artworks",
+          "Deployed SSR application on Cloudflare Workers with optimized performance and SEO",
+        ],
+      },
+      {
+        employer: "Kontrol Technologies",
+        link: "https://www.kontroltechnologies.com/",
+        badges: ["SvelteKit", "TypeScript", "Sanity CMS", "Vercel"],
+        description:
+          "Migrated smart home services company from legacy WordPress to modern SvelteKit architecture.",
+        keyPoints: [
+          "Redesigned and rebuilt customer-facing site with SvelteKit, Sanity CMS, and Tailwind CSS",
+          "Eliminated plugin bloat and technical debt, improving page load times by 30% and reducing maintenance overhead",
+          "Implemented headless CMS with Sanity for streamlined content management and scalability",
+        ],
+      },
+    ],
+  },
+];
+---
+
+<section class="flex flex-col gap-y-3">
+  <h2 class="text-xl font-bold">Work Experience</h2>
+
+  {
+    experience.map((job) => (
+      <article role="article">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-semibold leading-none">{job.title}</h3>
+            <div
+              class="text-sm tabular-nums text-gray-500"
+              aria-label={`Employment period: ${job.period}`}
+            >
+              {job.period}
+            </div>
+          </div>
+
+          {job.contracts.map((contract) => (
+            <div class="mb-3">
+              <div class="mb-2">
+                <h4 class="inline-flex text-sm items-center gap-x-1 font-semibold leading-none">
+                  <a
+                    href={contract.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:underline"
+                  >
+                    {contract.employer}
+                  </a>
+                  <ul
+                    class="list-none p-0 hidden gap-x-1 sm:inline-flex"
+                    aria-label="Technologies used"
+                  >
+                    {contract.badges.map((badge) => (
+                      <li>
+                        <Badge size="xs" mode="light">
+                          {badge}
+                        </Badge>
+                      </li>
+                    ))}
+                  </ul>
+                </h4>
+              </div>
+
+              <div class="text-pretty font-ibm-mono text-xs">
+                {contract.description}
+                <ul class="list-inside list-disc mt-1">
+                  {contract.keyPoints.map((point) => (
+                    <li>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+    ))
+  }
+</section>
